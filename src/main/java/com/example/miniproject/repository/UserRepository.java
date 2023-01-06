@@ -1,7 +1,7 @@
 package com.example.miniproject.repository;
 
 import com.example.miniproject.database.FakeDB;
-import com.example.miniproject.model.User;
+import com.example.miniproject.entiy.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

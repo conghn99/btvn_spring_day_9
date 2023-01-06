@@ -1,4 +1,4 @@
-package com.example.miniproject.model;
+package com.example.miniproject.entiy;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Todo {
+public class User {
     private int id;
-    private String title;
-    private boolean status;
+    private String username;
+    private String email;
+    private String password;
+    private String avatar;
 }

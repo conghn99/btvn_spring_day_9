@@ -1,6 +1,6 @@
 package com.example.miniproject.controller;
 
-import com.example.miniproject.model.Todo;
+import com.example.miniproject.entiy.Todo;
 import com.example.miniproject.request.TodoRequestPost;
 import com.example.miniproject.request.TodoRequestPut;
 import com.example.miniproject.service.TodoService;

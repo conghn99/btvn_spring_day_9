@@ -1,8 +1,11 @@
 package com.example.miniproject.service;
 
 import com.example.miniproject.exception.NotFoundException;
-import com.example.miniproject.model.Todo;
+import com.example.miniproject.entiy.Todo;
+import com.example.miniproject.repository.TodoRepository;
+import com.example.miniproject.repository.UserRepository;
 import com.example.miniproject.request.TodoRequestPut;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,47 +13,22 @@ import java.util.List;
 
 @Service
 public class TodoService {
-    private List<Todo> todos;
-
-    public TodoService() {
-        todos = new ArrayList<>();
-        todos.add(new Todo(1, "Đi ngủ", true));
-        todos.add(new Todo(2, "Đánh răng", true));
-        todos.add(new Todo(3, "Rửa mặt", true));
-        todos.add(new Todo(4, "Xem phim", false));
-        todos.add(new Todo(5, "Ăn sáng", true));
-        todos.add(new Todo(6, "Tán gái", false));
-        todos.add(new Todo(7, "Lên bar", false));
-        todos.add(new Todo(8, "Tham dự hội nghị", false));
-        todos.add(new Todo(9, "Du lịch", false));
-        todos.add(new Todo(10, "Ăn tối", true));
-    }
+    @Autowired
+    private TodoRepository todoRepository;
 
     public List<Todo> getTodosList() {
-        return todos;
+        return todoRepository.findAll();
     }
 
     public Todo postTodo(String title) {
-        int id = todos.get(todos.size() - 1).getId() + 1;
-        Todo todo = new Todo(id, title, false);
-        todos.add(todo);
-        return todo;
+        return null;
     }
 
     public Todo updateTodo(int id, TodoRequestPut request) {
-        for (Todo todo : todos) {
-            if(todo.getId() == id) {
-                todo.setTitle(request.getTitle());
-                todo.setStatus(request.isStatus());
-                return todo;
-            }
-        }
-        throw new NotFoundException("Not found todo with id " + id);
+        return todoRepository.updateTodoTitle(id, request.getTitle(), request.isStatus());
     }
 
     public void deleteTodo(int id) {
-        if (!todos.removeIf(todo -> todo.getId() == id)) {
-            throw new NotFoundException("Not found todo with id " + id);
-        }
+        todoRepository.deleteById(id);
     }
 }
