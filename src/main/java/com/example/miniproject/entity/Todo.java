@@ -1,4 +1,4 @@
-package com.example.miniproject.entiy;
+package com.example.miniproject.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

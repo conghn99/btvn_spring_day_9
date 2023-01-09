@@ -1,6 +1,6 @@
 package com.example.miniproject.database;
 
-import com.example.miniproject.entiy.User;
+import com.example.miniproject.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;

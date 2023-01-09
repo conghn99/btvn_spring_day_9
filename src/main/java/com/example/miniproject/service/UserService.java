@@ -2,7 +2,7 @@ package com.example.miniproject.service;
 
 import com.example.miniproject.dto.UserDTO;
 import com.example.miniproject.exception.NotFoundException;
-import com.example.miniproject.entiy.User;
+import com.example.miniproject.entity.User;
 import com.example.miniproject.repository.UserRepository;
 import com.example.miniproject.request.LogInRequest;
 import org.springframework.beans.factory.annotation.Autowired;
